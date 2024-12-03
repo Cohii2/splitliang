@@ -5,6 +5,8 @@ With Split-liang, you can create groups, add members, add expenses, and settle d
 Split-liang will automatically calculate the amount each member owes or is owed. 
 You can also play slots to remove your debts!
 
+---
+
 ## Run Frontend 
 1. Navigate to the _frontend_ directory. 
 2. Run:
