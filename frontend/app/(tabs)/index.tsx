@@ -7,7 +7,7 @@ export default function Index() {
             <Text>This is the home page.</Text>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     screenContainer: {

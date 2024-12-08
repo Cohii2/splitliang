@@ -12,13 +12,12 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="account/index"
+                name="account"
                 options={{
                     title: "Account",
                     tabBarIcon: ({ color }) => <Icon source="account-box-outline" size={30} color={color} />,
                 }}
             />
-            <Tabs.Screen name="account/signIn" options={{ href: null, }}/>
         </Tabs>
     );
-}
+};
