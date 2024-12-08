@@ -13,7 +13,7 @@ export const MockAuthProvider = ({ children }) => {
         return new Promise<void>((resolve, reject) => {
             setTimeout((): void => {
                 if (username === "" || password === "") {
-                    setErrorMessage("Username and password are required");
+                    setErrorMessage("Username and password are required.");
                     setIsLoading(false);
 
                     reject("Invalid input");
