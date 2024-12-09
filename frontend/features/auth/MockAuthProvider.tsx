@@ -27,6 +27,10 @@ export const MockAuthProvider = ({ children }) => {
         })
     }
 
+    const signup = async (username: string, password: string): Promise<void> => {
+        return login(username, password);
+    };
+
     const logout = async (): Promise<void> => {
         setIsLoading(true);
 
@@ -41,7 +45,7 @@ export const MockAuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, errorMessage, isLoading, login, logout }}>
+        <AuthContext.Provider value={{ user, errorMessage, isLoading, login, signup, logout }}>
             {children}
         </AuthContext.Provider>
     );

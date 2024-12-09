@@ -5,7 +5,7 @@ import {AuthContextType, useAuth} from "@/features/auth/AuthContext";
 import LoadingBadge from "@/components/LoadingBadge";
 
 export default function Account() {
-    const { user, errorMessage, isLoading, login, logout }: AuthContextType = useAuth();
+    const { user, errorMessage, isLoading, login, signup, logout }: AuthContextType = useAuth();
     const router = useRouter();
 
     const onLogOut = (): void => {
@@ -57,7 +57,7 @@ export default function Account() {
                 <Button
                     icon="login-variant"
                     mode="contained"
-                    onPress={() => router.push("(non-tabs)/logIn")}
+                    onPress={() => router.push("(non-tabs)/auth/login")}
                     style={styles.button}
                 >
                     Log In
@@ -65,7 +65,7 @@ export default function Account() {
                 <Button
                     icon="account-plus"
                     mode="contained"
-                    onPress={() => router.push("(non-tabs)/logIn")}
+                    onPress={() => router.push("(non-tabs)/auth/signup")}
                     style={styles.button}
                 >
                     Sign up

@@ -5,6 +5,7 @@ export type AuthContextType = {
     errorMessage: string | null;
     isLoading: boolean;
     login: (username: string, password: string) => Promise<void>;
+    signup: (username: string, password: string) => Promise<void>;
     logout: () => Promise<void>;
 };
 

@@ -5,8 +5,8 @@ import {TextInput, Text, Button} from "react-native-paper";
 import LoadingBadge from "@/components/LoadingBadge";
 import {useRouter} from "expo-router";
 
-export default function LogIn() {
-    const { user, errorMessage, isLoading, login, logout }: AuthContextType = useAuth();
+export default function Signup() {
+    const { user, errorMessage, isLoading, login, signup, logout }: AuthContextType = useAuth();
 
     const router = useRouter();
 
@@ -14,9 +14,9 @@ export default function LogIn() {
     const [password, setPassword] = useState<string>("");
     const [isPasswordHidden, setIsPasswordHidden] = useState<boolean>(true);
 
-    const onLogInButtonPress = () => {
-        login(username, password).then(r => {
-            console.log("Log in successful.");
+    const onSignupButtonPress = () => {
+        signup(username, password).then(r => {
+            console.log("Sign up successful.");
             router.replace("(tabs)/account");
         });
     };
@@ -38,14 +38,14 @@ export default function LogIn() {
                     {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
                     <TextInput
                         mode="outlined"
-                        label="Username"
+                        label="Set Username"
                         text={username}
                         style={styles.textInput}
                         onChangeText={text => setUsername(text)}
                     />
                     <TextInput
                         mode="outlined"
-                        label="Password"
+                        label="Set Password"
                         text={password}
                         style={styles.textInput}
                         secureTextEntry={isPasswordHidden}
@@ -63,11 +63,17 @@ export default function LogIn() {
                         icon="login-variant"
                         mode="contained"
                         style={styles.button}
-                        onPress={() => {onLogInButtonPress()}}
+                        onPress={() => {onSignupButtonPress()}}
+                    >
+                        Sign Up
+                    </Button>
+                    <Button
+                        mode="text"
+                        style={styles.button}
+                        onPress={() => {router.push("(non-tabs)/auth/login")}}
                     >
                         Log In
                     </Button>
-                    <Button mode="text" style={styles.button} onPress={() => {  }} >Sign Up</Button>
                 </View>
             </>}
             {isLoading && <View style={styles.opacity}>
