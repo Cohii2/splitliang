@@ -76,9 +76,7 @@ export default function Signup() {
                     </Button>
                 </View>
             </>}
-            {isLoading && <View style={styles.opacity}>
-                <LoadingBadge />
-            </View>}
+            {isLoading && <LoadingBadge />}
         </>
     );
 };
@@ -109,12 +107,5 @@ const styles = StyleSheet.create({
     button: {
         marginVertical: 5,
         width: "30%",
-    },
-    opacity: {
-        position: "absolute",
-        top: 0, left: 0, right: 0, bottom: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-        justifyContent: "center",
-        alignItems: "center",
     },
 });
