@@ -1,8 +1,10 @@
 package com.mukund.security.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-public class User {
+@Entity
+public class Users {
 
     @Id
     private int id;
