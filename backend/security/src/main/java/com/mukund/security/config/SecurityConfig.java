@@ -45,17 +45,17 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("register","login").permitAll()
+                        .requestMatchers("register","login", "oauth2/authorization").permitAll()
                         .anyRequest().authenticated())
 //                .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
-//                .oauth2Login(oauth -> oauth
-//                        .authorizationEndpoint(auth -> auth
-//                                .baseUri("/oauth2/authorization")) // Frontend calls this
-//                        .redirectionEndpoint(redir -> redir
-//                                .baseUri("/login/oauth2/code/*")) // OAuth provider (Google) redirects here
-//                        .successHandler(customOAuth2SuccessHandler)
-//                        .failureHandler(customOAuth2FailureHandler))
+                .oauth2Login(oauth -> oauth
+                        .authorizationEndpoint(auth -> auth
+                                .baseUri("/oauth2/authorization")) // Frontend calls this
+                        .redirectionEndpoint(redir -> redir
+                                .baseUri("/login/oauth2/code/*")) // OAuth provider (Google) redirects here
+                        .successHandler(customOAuth2SuccessHandler)
+                        .failureHandler(customOAuth2FailureHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
