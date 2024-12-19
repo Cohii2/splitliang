@@ -13,3 +13,11 @@ You can also play slots to remove your debts!
    ```
 3. After running the command above, you will see a QR code in your terminal. 
    Scan this QR code to open the app on your device. 
+
+### Database
+Following is the Entity Relationship diagram
+![ER diagram](images/heeheehorhor.2drawio.png)
+
+TODO in the future
+* Currency exchange
+
