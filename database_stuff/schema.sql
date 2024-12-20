@@ -6,9 +6,9 @@ DROP TABLE IF EXISTS Groups;
 
 
 CREATE TABLE Users (
-    userid VARCHAR(100),
-    name VARCHAR(200) NOT NULL CHECK (length(trim(name)) > 0),
-    password VARCHAR(200) NOT NULL CHECK (length(trim(name)) > 0),
+    userid INTEGER,
+    username VARCHAR(200) NOT NULL CHECK (length(trim(username)) > 0),
+    password VARCHAR(200) NOT NULL CHECK (length(trim(password)) > 0),
     PRIMARY KEY(userid)
 );
 
@@ -19,7 +19,7 @@ CREATE TABLE Groups (
 );
 
 CREATE TABLE Members (
-    userid VARCHAR(100),
+    userid INTEGER,
     groupid VARCHAR(100),
     PRIMARY KEY(userid, groupid),
     FOREIGN KEY(userid) REFERENCES Users(userid),
@@ -31,12 +31,12 @@ CREATE TABLE TransactionsInGroup (
     transaction_type VARCHAR(100) NOT NULL,
     currency CHAR(3) NOT NULL,
     amount DECIMAL(12, 2) NOT NULL,
-    payer_id VARCHAR(100),
-    payee_id VARCHAR(100),
+    payer_id INTEGER,
+    payee_id INTEGER,
     group_id VARCHAR(100),
     PRIMARY KEY(transactionid),
     CHECK (payer_id != payee_id),
-    FOREIGN KEY(group_id) REFERENCES Groups(groupid) 
+    FOREIGN KEY(group_id) REFERENCES Groups(groupid)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 		DEFERRABLE INITIALLY DEFERRED,
